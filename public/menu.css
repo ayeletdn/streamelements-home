@@ -1,0 +1,42 @@
+
+    #menu .menu-item {
+        display: inline-grid;
+        margin-right: 3px;
+    }
+  
+    #menu .menu {
+        position: absolute;
+        display: none;
+    }
+    
+    #menu .menu-item:hover .menu {
+        display: block;
+    }
+
+    #menu .header {
+        padding: 0.2em;
+        z-index: 100;
+    }
+
+    #menu .menu-item:hover .header {
+        background-color: #666;
+    }
+
+    #menu ul {
+        top: 1.6em;
+        position: relative;
+        background-color: rgba(222, 222, 222, 0.9);
+        padding-inline-start: 0;
+        margin-block-start: 0;
+    }
+
+    #menu li {
+        cursor: pointer;
+        color: #222;
+        padding: 0.2em;
+        display: block;
+    }
+
+    #menu li:hover {
+        background-color: #aaa;
+    }

@@ -1,0 +1,22 @@
+
+/* CSS for excercise 3. 
+    Does not work well cross-browser in the React CSS component because creates embeded styles.
+*/
+/* analysis: 
+    Lightness: From top to bottom, start:full-light stop:transparent full-light, start:transparent full-dark stop:full-dark
+    Saturation: From left to right start:grey stop:transparent grey.
+    Hue: Is set in the component, so seen through the transparent parts.
+*/
+#colorBox {
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+	background: -moz-linear-gradient(   top, hsl(0, 0%, 100%) 0%, hsla(0, 0%, 100%, 0) 50%, hsla(0, 0%, 0%, 0) 50%, hsl(0, 0%, 0%) 100%),
+				-moz-linear-gradient(   left, hsl(0, 0%, 50%) 0%, hsla(0, 0%, 50%, 0) 100%);
+	background: -webkit-linear-gradient(top, hsl(0, 0%, 100%) 0%, hsla(0, 0%, 100%, 0) 50%, hsla(0, 0%, 0%, 0) 50%, hsl(0, 0%, 0%) 100%),
+				-webkit-linear-gradient(left, hsl(0, 0%, 50%) 0%, hsla(0, 0%, 50%, 0) 100%);
+	background: -ms-linear-gradient(    top, hsl(0, 0%, 100%) 0%, hsla(0, 0%, 100%, 0) 50%, hsla(0, 0%, 0%, 0) 50%, hsl(0, 0%, 0%) 100%),
+				-ms-linear-gradient(    left, hsl(0, 0%, 50%) 0%, hsla(0, 0%, 50%, 0) 100%);
+	background: -o-linear-gradient(     top, hsl(0, 0%, 100%) 0%, hsla(0, 0%, 100%, 0) 50%, hsla(0, 0%, 0%, 0) 50%, hsl(0, 0%, 0%) 100%),
+				-o-linear-gradient(     left, hsl(0, 0%, 50%) 0%, hsla(0, 0%, 50%, 0) 100%);
+}

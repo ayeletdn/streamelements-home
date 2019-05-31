@@ -1,0 +1,25 @@
+body {
+    width: 60vw;
+    margin: 10px auto;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.demo {
+    padding: 1em;
+    border: 1px dashed;
+}
+
+.explain {
+    margin-top: 3em;
+}
+
+code {
+    font-style: italic;
+}
+
+a {
+    color: wheat;
+}

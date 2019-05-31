@@ -1,0 +1,14 @@
+#colorBox {
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    background-color: red;
+}
+
+#selectedDisplay {
+    margin-top: 20px;
+    width: 100px;
+    height: 20px;
+    background-color: transparent;
+    border: 1px solid;
+}

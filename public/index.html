@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>StreamElements home assignment</title>
+
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="menu.css" />
+  <link rel="stylesheet" href="color.css" />
+
+</head>
+
+<body>
+  <img src="https://cdn.streamelements.com/assets/homepage/logo-dashboard.png" />
+
+  <div class="explain">
+    Note: <i>All code samples were developed on the latest stable Chrome and finally tested on Microsoft Edge.</i><br><br>
+    The work itself was done in segments, starting Thursday afternoon for Ex1 (one swoop), Thursday evening for Ex2 (one swoop) and Thursday 
+    night and Friday morning and afternoon for Ex3 (multiple sittings in-between).<br>
+    To each excercise I've added a description of the mindset, research and final work, as best I can.
+    <br><br>
+    <b>Very much missing: TESTS</b>
+  </div>
+
+  <div class="explain">
+    <h1>Excercise 1 - Top menu, HTML & CSS only </h1>
+
+    <div id="menu" class="demo">
+      <div class="menu-item">
+        <div class="header">header</div>
+        <div class="menu">
+          <ul>
+            <li>item 1</li>
+            <li>item with long name 2</li>
+            <li>item 3</li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="header">header 2</div>
+        <div class="menu">
+          <ul>
+            <li>item 4</li>
+            <li>item 5</li>
+            <li>last item</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div>
+      <p>This excercise took total 40 minutes.</p>
+      <p>
+        The <code>:hover</code> pseudo-element was the easy part. I rememberd that.<br>
+        The harder part was to remember how to correctly position the menu element.
+        At first, I thought about floating the element. Then I saw it didn't work,
+        so I googled "css layers" because I was thinking about z-index
+        and came across <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Stacking_without_z-index">this
+          MDN article</a>
+        and then I slapped myself for forgetting about <code>position:absolute</code> and <code>position:relative</code>
+        and it was a breeze from there. I spent another few minutes "prettifying" it. :)<br>
+        Oh, and to test more than one item, I quickly looked up the css grid. I need to read that in more detail, once
+        I'm done with this.<br>
+        After thoughts: After I completed the excercises, I came back to this with a small suspicion about the structure.<br>
+        I ended up spending 10 more minutes fixing two issues:
+        <ol>
+          <li>used standard HTML list elements <code>ul/li</code></li>
+          <li>When item name was long, the hover on the next header didn't "kick in". I gave the headers z-index priority to solve this.</li>
+        </ol>
+      </p>
+    </div>
+  </div>
+  <div class="explain">
+    <h1>Excercise 2 - Toggle style using react and mobx</h1>
+    <div id="ex2" class="demo"></div>
+    <div>
+      <p>This excercise took total 1 hour.</p>
+      <p>
+        The basics were easy, I started with <code>npx react-create-app myapp</code>,
+        and I mostly followed the code example in the mobx getting started page.
+        I split the code into <code>view</code>/<code>model</code> files for better structure.
+        Problems started because of my setup which didn't like the <code>@</code> decorator.
+        For the <code>@observable</code>, the solution was available in the code example,
+        but for some reason the <code>observer</code> solution wasn't. A quick Google search solved that.<br>
+        Then I had some stupid bugs about naming (I named the prop in the component <code>itemsList</code>),
+        but in the index.js I created an attribute named <code>items</code>. 🤦
+      </p>
+    </div>
+  </div>
+
+  <div class="explain">
+    <h1>Excercise 3 - Implement HSL color picker</h1>
+    <div id="ex3" class="demo"></div>
+    <p>This excercise took total 2 hours.</p>
+    <p>
+      I broke the solution down into two parts.
+      <ol>
+        <li>Draw the color picker with css gradients</li>
+        <li>use <code>offsetLeft</code> and <code>offsetTop</code> to identify the click position and calculate the
+          correct gardient</li>
+      </ol>
+      I knew that once I got the gradient right, I would understand how to calculate the values as well - I expected
+      they would correlate.
+      (Spoiler: I was right :).
+      I tried figuring it out myself, for about 1.5 hours of reading the specs of gradients, and nothing really worked
+      as expected. Somehwere in those research hours I came across <code>&lt;input type="color"&gt;</code>. Good to know.<br />
+      At the end I decided I've spent too much time on the theory and it did not move me on fast enough, so I went to
+      look at examples of web color pickers. Google has one built in to search, but it used <code>canvas</code>,
+      and I wasn't interested in going down a whole nother reasearch path, if I didn't have to. Though I'm till curious
+      how it works. Then I landed on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool">MDNs color picker</a>
+      and that had a good example with the CSS I was looking for.<br>
+      The next problem was getting the cross-browser to work. I saw they were using the browser prefixes, and
+      experiments showed that the none-prefixed version seems to work differently, though some quick search didn't provide an answer to why.<br>
+      The next challenge was to figure out why the CSS, copied from MDN, was acting up if I had multiple browser elements.
+      The only difference I could notice was that my style was compiled inline in the element's CSS, while the MDN version
+      was using a css file. I copied the background styles into style.css, and it worked. Yet another thing to investigate.<br>
+      Finally, now that the box was displaying the colors as expected, I could look at the top-to-bottom, left-to-right,
+      and as I expected, I could see how the HSL gradient is calculated. As Intended originally, the element's offset,
+      compared to the mouse position on page gave me the lightness and saturation (had to inverse the lightness).
+    </p>
+    <p>
+      <br>
+      <b>Things to learn</b>:<br>
+      <ul>
+        <li>How does that canvas version work?</li>
+        <li>What's the difference between the standard and the browser-prefixed "linear-gradient" CSS property</li>
+        <li>Why do browser-prefixed styles work in css files and not in-body style elements?</li>
+      </ul>
+    </p>
+  </div>
+</body>
+
+</html>
