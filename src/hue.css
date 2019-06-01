@@ -7,10 +7,10 @@
      ,hsl(240,100%,50%), hsl(260,100%,50%), hsl(280,100%,50%)
      ,hsl(300,100%,50%), hsl(320,100%,50%), hsl(340,100%,50%)
      );
-     width: fit-content;
+     width: 365px;
      margin-bottom: 1em;
 }
 
 .hueSelector input {
-    width: 360px;
+    width: 100%;
 }
