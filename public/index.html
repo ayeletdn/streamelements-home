@@ -96,7 +96,7 @@
   <div class="explain">
     <h1>Excercise 3 - Implement HSL color picker</h1>
     <div id="ex3" class="demo"></div>
-    <p>This excercise took total 2 hours.</p>
+    <p>This basic excercise took total 2 hours (+2h for the hue slider, total 4h).</p>
     <p>
       I broke the solution down into two parts.
       <ol>
@@ -122,6 +122,13 @@
       Finally, now that the box was displaying the colors as expected, I could look at the top-to-bottom, left-to-right,
       and as I expected, I could see how the HSL gradient is calculated. As Intended originally, the element's offset,
       compared to the mouse position on page gave me the lightness and saturation (had to inverse the lightness).
+    </p>
+    <p>
+      <b>Update</b>: +2h of work to add a slider to select the hue. Most of the time was spent figuring out how to get
+      all the parts to play nicely together. Just goes to show how much it's worth to do a tidy job. Once I got all the data
+      set on the component's state, I could see it's not updating, and I recalled that setState is async. 
+      How nice of them to have a callback function, which solved the whole issue.<br>
+      Still would be nice to have a marker in the staturation/light box, to show where the selector is at the moment.
     </p>
     <p>
       <br>

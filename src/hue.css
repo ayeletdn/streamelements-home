@@ -1,0 +1,16 @@
+.hueSelector {
+    background: linear-gradient(to right, 
+        hsl(0,100%,50%), hsl(20,100%,50%), hsl(40,100%,50%)
+     ,hsl(60,100%,50%), hsl(80,100%,50%), hsl(100,100%,50%)
+     ,hsl(120,100%,50%), hsl(140,100%,50%), hsl(160,100%,50%)
+     ,hsl(180,100%,50%), hsl(200,100%,50%), hsl(220,100%,50%)
+     ,hsl(240,100%,50%), hsl(260,100%,50%), hsl(280,100%,50%)
+     ,hsl(300,100%,50%), hsl(320,100%,50%), hsl(340,100%,50%)
+     );
+     width: fit-content;
+     margin-bottom: 1em;
+}
+
+.hueSelector input {
+    width: 360px;
+}
