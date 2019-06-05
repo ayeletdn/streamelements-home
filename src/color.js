@@ -2,13 +2,20 @@ import React, { Component } from "react";
 import HueSelector from './hue.js';
 import './box.css';
 
+const PURE_SAT = 100;
+const PURE_LIGHT = 50;
+
 export default class ColorSelector extends Component {
 
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.hueChange = this.hueChange.bind(this);
-        this.state = {hue: 0, saturation: 100, light: 50}; //red
+        this.state = {
+            hue:            0 //red
+            , saturation:   PURE_SAT
+            , light:        PURE_LIGHT
+        };
     }
 
     componentDidMount() {
@@ -28,15 +35,16 @@ export default class ColorSelector extends Component {
         this.setState({hue: value}, this.updateUI);
     }
 
-    hslToString() {
-        let s = this.state;
-        return 'hsl('+s.hue+', '+s.saturation+'%, '+s.light+'%)';
+    hslToString(isPureHue) {
+        const s = this.state;
+        const sat = isPureHue   ? PURE_SAT      : s.saturation;
+        const light = isPureHue ? PURE_LIGHT    : s.light;
+        return 'hsl('+s.hue+', '+sat+'%, '+light+'%)';
     }
 
     updateUI() {
-        let value = this.hslToString();
-        document.getElementById('colorBox').style.backgroundColor = value;
-        document.getElementById('selectedDisplay').style.background = value;
+        document.getElementById('colorBox').style.backgroundColor = this.hslToString(true);
+        document.getElementById('selectedDisplay').style.background = this.hslToString();
     }
 
     render() {
